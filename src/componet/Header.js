@@ -1,14 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
-import facade from "../apiFacade";
-import LoggedIn from "./login/LoggedIn";
-import LogIn from "./login/LogIn";
 
 function Header() {
-
-  
-
-
   return (
     <div>
       <ul className="header">
@@ -33,6 +25,11 @@ function Header() {
           </NavLink>
         </li>
         <li>
+          <NavLink activeClassName="active" to="/cat-fact">
+            Cat Fact
+          </NavLink>
+        </li>
+        <li>
           <NavLink activeClassName="active" to="/company">
             Company
           </NavLink>
@@ -43,7 +40,6 @@ function Header() {
           </NavLink>
         </li>
       </ul>
-      
     </div>
   );
 }

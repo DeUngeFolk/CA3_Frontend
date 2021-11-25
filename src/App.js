@@ -19,6 +19,7 @@ import FindBook from "./componet/FindBook";
 import LogIn from "./componet/login/LogIn";
 import facade from "./apiFacade";
 import LoggedIn from "./componet/login/LoggedIn";
+import CatFact from "./componet/CatFact";
 
 function App(props) {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -47,6 +48,9 @@ function App(props) {
         <Route path="/find-book">
           <FindBook bookFacade={props.bookFacade} />
         </Route>
+        <Route path='/cat-fact'>
+          <CatFact />
+          </Route>
         <Route path="/company">
           <Company />
         </Route>

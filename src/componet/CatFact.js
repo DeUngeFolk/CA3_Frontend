@@ -1,30 +1,35 @@
 import { useEffect, useState } from "react";
-import facade from "../apiFacade";
 
-const FetchCatFact = () => {
-  const [catFact, setCatFact] = useState([
-    {
-      catFact: "",
-    },
-  ]);
+const CatFact = () => {
+  const [catFact, setCatFact] = useState();
+  
 
   useEffect(() => {
-    facade.FetchCatFactData(URL + "api/catfact/fact", );
-  }, []);
+    const option = {
+      method: "GET",
+      Headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    }
 
-  const getCatFact = async (data) => {
-    setCatFact(data.catFact, setCatFact);
-  };
+    fetch("https://anderslind99.com/CA3/api/catfact/fact", option)
+      .then((response) => response.json())
+      .then((data) =>
+      {console.log(data);
+      setCatFact(data)
+    });
+  }, []);
 
   return (
     <div>
-
-        <p>cat fact: {catFact.getCatFact}</p>
-    
+      {catFact && (<div>
+      <h1> Id: {catFact.id} </h1>
+      <h1> Type: {JSON.stringify(catFact.type.type)} </h1>
+      <h2> Fact: {catFact.fact} </h2> </div>)
+    }
     </div>
   );
 };
 
-export default function App() {
-    return <FetchCatFact />;
-  }
+export default CatFact;
