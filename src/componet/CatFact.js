@@ -12,19 +12,29 @@ const CatFact = (props) => {
       },
     };
     getNewCatFact();
-    
   }, []);
 
-useEffect ((data)=>{
+  useEffect(
+    () => {
+      if (props.loggedIn) {
+        const option = {
+          method: "POST",
+          Headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(catFact),
+        };
 
-  if(props.loggedIn) {
-  
-   console.log("add Post to FactHistory here")
+        fetch("https://anderslind99.com/CA3/api/animalfact/facthistory/save/user",option)
+        .then((response) => response.json)
 
-  } 
-
-
-},[catFact])
+        console.log(catFact);
+        console.log("add Post to FactHistory here");
+      }
+    },
+    [catFact]
+  );
 
   const getNewCatFact = () => {
     fetch("https://anderslind99.com/CA3/api/catfact/fact")
