@@ -20,6 +20,7 @@ import LogIn from "./componet/login/LogIn";
 import facade from "./apiFacade";
 import LoggedIn from "./componet/login/LoggedIn";
 import CatFact from "./componet/CatFact";
+import DogFact from "./componet/DogFact";
 
 function App(props) {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -50,6 +51,9 @@ function App(props) {
         </Route>
         <Route path='/cat-fact'>
           <CatFact />
+          </Route>
+          <Route path='/dog-fact'>
+          <DogFact />
           </Route>
         <Route path="/company">
           <Company />
