@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 const CatFact = () => {
   const [catFact, setCatFact] = useState();
-  
 
   useEffect(() => {
     const option = {
@@ -11,23 +10,33 @@ const CatFact = () => {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-    }
-
-    fetch("https://anderslind99.com/CA3/api/catfact/fact", option)
-      .then((response) => response.json())
-      .then((data) =>
-      {console.log(data);
-      setCatFact(data)
-    });
+    };
+    getNewCatFact();
   }, []);
+
+  const getNewCatFact = () => {
+    fetch("https://anderslind99.com/CA3/api/catfact/fact")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setCatFact(data);
+      });
+  };
 
   return (
     <div>
-      {catFact && (<div>
-      <h1> Id: {catFact.id} </h1>
-      <h1> Type: {JSON.stringify(catFact.type.type)} </h1>
-      <h2> Fact: {catFact.fact} </h2> </div>)
-    }
+      {catFact && (
+        <div>
+          <h1> Id: {catFact.id} </h1>
+          <h1> Type: {JSON.stringify(catFact.type.type)} </h1>
+          <h2> Fact: {catFact.fact} </h2>{" "}
+        </div>
+      )}
+
+      <button value="catFact" onClick={getNewCatFact}>
+        {" "}
+        new cat fact{" "}
+      </button>
     </div>
   );
 };
