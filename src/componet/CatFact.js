@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const CatFact = () => {
+const CatFact = (props) => {
   const [catFact, setCatFact] = useState();
 
   useEffect(() => {
@@ -12,7 +12,19 @@ const CatFact = () => {
       },
     };
     getNewCatFact();
+    
   }, []);
+
+useEffect ((data)=>{
+
+  if(props.loggedIn) {
+  
+   console.log("add Post to FactHistory here")
+
+  } 
+
+
+},[catFact])
 
   const getNewCatFact = () => {
     fetch("https://anderslind99.com/CA3/api/catfact/fact")

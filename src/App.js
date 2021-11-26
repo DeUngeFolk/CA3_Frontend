@@ -50,7 +50,7 @@ function App(props) {
           <FindBook bookFacade={props.bookFacade} />
         </Route>
         <Route path='/cat-fact'>
-          <CatFact />
+          <CatFact loggedIn = {loggedIn} />
           </Route>
           <Route path='/dog-fact'>
           <DogFact />
