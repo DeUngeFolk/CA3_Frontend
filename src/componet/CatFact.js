@@ -15,22 +15,27 @@ const CatFact = (props) => {
   }, []);
 
   useEffect(
+
+
     () => {
+
+      const animalfact = catFact
       if (props.loggedIn) {
         const option = {
           method: "POST",
           Headers: {
-            "Content-Type": "application/json",
+          
             Accept: "application/json",
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify(catFact),
+
+          // TODO: find issue with the MediaType. getting 415 error from server.
+          body: JSON.stringify({animalfact})
         };
-
+      
         fetch("https://anderslind99.com/CA3/api/animalfact/facthistory/save/user",option)
-        .then((response) => response.json)
-
-        console.log(catFact);
-        console.log("add Post to FactHistory here");
+        .then((response) => response.json())
+        
       }
     },
     [catFact]
