@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const CatFact = () => {
+const CatFact = (props) => {
   const [catFact, setCatFact] = useState();
 
   useEffect(() => {
@@ -13,6 +13,33 @@ const CatFact = () => {
     };
     getNewCatFact();
   }, []);
+
+  useEffect(
+
+
+    () => {
+
+      const animalfact = catFact
+      if (props.loggedIn) {
+        const option = {
+          method: "POST",
+          Headers: {
+          
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+
+          // TODO: find issue with the MediaType. getting 415 error from server.
+          body: JSON.stringify({animalfact})
+        };
+      
+        fetch("https://anderslind99.com/CA3/api/animalfact/facthistory/save/user",option)
+        .then((response) => response.json())
+        
+      }
+    },
+    [catFact]
+  );
 
   const getNewCatFact = () => {
     fetch("https://anderslind99.com/CA3/api/catfact/fact")
