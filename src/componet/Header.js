@@ -35,6 +35,16 @@ function Header() {
           </NavLink>
         </li>
         <li>
+          <NavLink activeClassName="active" to="/koala-fact">
+            Koala Fact
+          </NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName="active" to="/fox-fact">
+            Fox Fact
+          </NavLink>
+        </li>
+        <li>
           <NavLink activeClassName="active" to="/company">
             Company
           </NavLink>

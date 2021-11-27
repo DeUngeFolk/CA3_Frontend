@@ -21,6 +21,8 @@ import facade from "./apiFacade";
 import LoggedIn from "./componet/login/LoggedIn";
 import CatFact from "./componet/CatFact";
 import DogFact from "./componet/DogFact";
+import KoalaFact from "./componet/KoalaFact";
+import FoxFact from "./componet/FoxFact";
 
 function App(props) {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -54,6 +56,12 @@ function App(props) {
           </Route>
           <Route path='/dog-fact'>
           <DogFact />
+          </Route>
+          <Route path='/koala-fact'>
+          <KoalaFact />
+          </Route>
+          <Route path='/fox-fact'>
+          <FoxFact />
           </Route>
         <Route path="/company">
           <Company />
