@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import facade from "../apiFacade";
 
 const CatFact = (props) => {
   const [catFact, setCatFact] = useState();
@@ -14,32 +15,30 @@ const CatFact = (props) => {
     getNewCatFact();
   }, []);
 
-  useEffect(
-
-
-    () => {
-
-      const animalfact = catFact
-      if (props.loggedIn) {
+  useEffect(() => {
+    const animalfact = catFact;
+    if (props.loggedIn) {
+      if (animalfact != null) {
         const option = {
           method: "POST",
           Headers: {
-          
             Accept: "application/json",
             "Content-Type": "application/json",
           },
 
           // TODO: find issue with the MediaType. getting 415 error from server.
-          body: JSON.stringify({animalfact})
+          body: JSON.stringify({ animalfact }),
         };
+
+        fetch(
+          "https://anderslind99.com/CA3/api/animalfact/facthistory/save/user",
+          facade.makeOptions("POST",true,animalfact))
       
-        fetch("https://anderslind99.com/CA3/api/animalfact/facthistory/save/user",option)
-        .then((response) => response.json())
-        
+          .then((response) => response.json())
+          .then(console.log(animalfact));
       }
-    },
-    [catFact]
-  );
+    }
+  }, [catFact]);
 
   const getNewCatFact = () => {
     fetch("https://anderslind99.com/CA3/api/catfact/fact")
