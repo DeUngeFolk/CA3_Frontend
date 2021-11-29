@@ -15,7 +15,7 @@ const KoalaFact = () => {
   }, []);
 
   const getNewKoalaFact = () => {
-    fetch("https://anderslind99.com/CA3/api/Koalafact/fact") 
+    fetch("https://anderslind99.com/CA3/api/koalafact/fact") 
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
