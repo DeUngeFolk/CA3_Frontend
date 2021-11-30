@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import facade from "../apiFacade";
 
 const KoalaFact = () => {
   const [koalaFact, setKoalaFact] = useState();
@@ -15,12 +16,8 @@ const KoalaFact = () => {
   }, []);
 
   const getNewKoalaFact = () => {
-    fetch("https://anderslind99.com/CA3/api/koalafact/fact") 
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setKoalaFact(data);
-      });
+    facade.FetchAnimalFactData("koala")
+    .then((data) => setKoalaFact(data));
   };
 
   return (

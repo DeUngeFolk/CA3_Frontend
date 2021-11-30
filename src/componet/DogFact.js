@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import facade from "../apiFacade";
 
 const DogFact = () => {
   const [dogFact, setDogFact] = useState();
@@ -15,12 +16,8 @@ const DogFact = () => {
   }, []);
 
   const getNewDogFact = () => {
-    fetch("https://anderslind99.com/CA3/api/dogfact/fact")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setDogFact(data);
-      });
+    facade.FetchAnimalFactData("dog")
+    .then((data) => setDogFact(data));
   };
 
   return (

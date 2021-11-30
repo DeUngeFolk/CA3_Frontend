@@ -24,12 +24,8 @@ const CatFact = (props) => {
   }, [catFact]);
 
   const getNewCatFact = () => {
-    fetch(URL + "/api/catfact/fact")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setCatFact(data);
-      });
+    facade.FetchAnimalFactData("cat")
+    .then((data) => setCatFact(data));
   };
 
   return (

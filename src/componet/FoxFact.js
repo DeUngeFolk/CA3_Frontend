@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import facade from "../apiFacade";
 
 const FoxFact = () => {
   const [foxFact, setFoxFact] = useState();
@@ -15,12 +16,8 @@ const FoxFact = () => {
   }, []);
 
   const getNewFoxFact = () => {
-    fetch("https://anderslind99.com/CA3/api/foxfact/fact")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setFoxFact(data);
-      });
+    facade.FetchAnimalFactData("fox")
+    .then((data) => setFoxFact(data));
   };
 
   return (

@@ -1,4 +1,5 @@
 import URL from "./settings";
+import { useState } from "react";
 
 function handleHttpErrors(res) {
   if (!res.ok) {
@@ -42,12 +43,12 @@ function apiFacade() {
       
   };
 
-const FetchCatFactData = () => {
-const options = makeOptions("GET", true)
-return fetch (URL + "/api/catfact/fact", options).then(handleHttpErrors)
+const FetchAnimalFactData = (animal) => {
 
-
-
+  return fetch(URL + "/api/animalfact/" + animal)
+  .then((response) => response.json())
+  
+  
   };
 
   const makeOptions = (method, addToken, body) => {
@@ -74,7 +75,7 @@ return fetch (URL + "/api/catfact/fact", options).then(handleHttpErrors)
     login,
     logout,
     fetchData,
-    FetchCatFactData
+    FetchAnimalFactData
   };
 }
 const facade = apiFacade();
