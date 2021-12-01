@@ -1,19 +1,26 @@
 import { useEffect, useState } from "react";
 import facade from "../apiFacade";
 
-const FoxFact = () => {
+const FoxFact = (props) => {
   const [foxFact, setFoxFact] = useState();
 
   useEffect(() => {
-    const option = {
-      method: "GET",
-      Headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    };
     getNewFoxFact();
   }, []);
+
+  useEffect(() => {
+    const animalfact = foxFact;
+    if (props.loggedIn) {
+      if (animalfact != null) {
+        fetch(
+          URL + "/api/animalfact/facthistory/save/user",
+          facade.makeOptions("POST", true, animalfact)
+        )
+          .then((response) => response.json())
+          .then(console.log(animalfact));
+      }
+    }
+  }, [foxFact]);
 
   const getNewFoxFact = () => {
     facade.FetchAnimalFactData("fox")

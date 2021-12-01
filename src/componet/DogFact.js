@@ -1,19 +1,27 @@
 import { useEffect, useState } from "react";
 import facade from "../apiFacade";
 
-const DogFact = () => {
+const DogFact = (props) => {
   const [dogFact, setDogFact] = useState();
 
   useEffect(() => {
-    const option = {
-      method: "GET",
-      Headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    };
     getNewDogFact();
   }, []);
+
+  useEffect(() => {
+    const animalfact = dogFact;
+    if (props.loggedIn) {
+      if (animalfact != null) {
+        fetch(
+          URL + "/api/animalfact/facthistory/save/user",
+          facade.makeOptions("POST", true, animalfact)
+        )
+          .then((response) => response.json())
+          .then(console.log(animalfact));
+      }
+    }
+  }, [dogFact]);
+
 
   const getNewDogFact = () => {
     facade.FetchAnimalFactData("dog")

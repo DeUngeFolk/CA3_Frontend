@@ -55,13 +55,13 @@ function App(props) {
           <CatFact loggedIn = {loggedIn} />
           </Route>
           <Route path='/dog-fact'>
-          <DogFact />
+          <DogFact loggedIn = {loggedIn} />
           </Route>
           <Route path='/koala-fact'>
-          <KoalaFact />
+          <KoalaFact loggedIn = {loggedIn} />
           </Route>
           <Route path='/fox-fact'>
-          <FoxFact />
+          <FoxFact loggedIn = {loggedIn} />
           </Route>
         <Route path="/company">
           <Company />

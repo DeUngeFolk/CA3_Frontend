@@ -1,19 +1,30 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import facade from "../apiFacade";
 
-const KoalaFact = () => {
+
+
+
+const KoalaFact = (props) => {
   const [koalaFact, setKoalaFact] = useState();
 
   useEffect(() => {
-    const option = {
-      method: "GET",
-      Headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    };
     getNewKoalaFact();
   }, []);
+
+  useEffect(() => {
+    const animalfact = koalaFact;
+    if (props.loggedIn) {
+      if (animalfact != null) {
+        fetch(
+          URL + "/api/animalfact/facthistory/save/user",
+          facade.makeOptions("POST", true, animalfact)
+        )
+          .then((response) => response.json())
+          .then(console.log(animalfact));
+      }
+    }
+  }, [koalaFact]);
+
 
   const getNewKoalaFact = () => {
     facade.FetchAnimalFactData("koala")
@@ -29,7 +40,7 @@ const KoalaFact = () => {
           <h2> Fact: {koalaFact.fact} </h2>{" "}
         </div>
       )}
-
+      
       <button value="koalaFact" onClick={getNewKoalaFact}>
         {" "}
         new koala fact{" "}
@@ -39,3 +50,6 @@ const KoalaFact = () => {
 };
 
 export default KoalaFact;
+
+
+
