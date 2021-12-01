@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import facade from "../apiFacade";
 import URL from "../settings";
+import LoggedIn from "./login/LoggedIn";
 
 const CatFact = (props) => {
   const [catFact, setCatFact] = useState();
+  
 
   useEffect(() => {
     getNewCatFact();
@@ -13,19 +15,20 @@ const CatFact = (props) => {
     const animalfact = catFact;
     if (props.loggedIn) {
       if (animalfact != null) {
-        fetch(
-          URL + "/api/animalfact/facthistory/save/user",
-          facade.makeOptions("POST", true, animalfact)
-        )
-          .then((response) => response.json())
-          .then(console.log(animalfact));
+        facade
+          .fetchData()
+          .then((data) => fetch(
+              URL + "/api/animalfact/facthistory/save/" + data.msg,
+              facade.makeOptions("POST", true, animalfact)
+            )
+              .then((response) => response.json())
+          );
       }
     }
   }, [catFact]);
 
   const getNewCatFact = () => {
-    facade.FetchAnimalFactData("cat")
-    .then((data) => setCatFact(data));
+    facade.FetchAnimalFactData("cat").then((data) => setCatFact(data));
   };
 
   return (
