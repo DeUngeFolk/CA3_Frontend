@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import facade from "../apiFacade";
+import URL from "../settings";
 
 const DogFact = (props) => {
   const [dogFact, setDogFact] = useState();

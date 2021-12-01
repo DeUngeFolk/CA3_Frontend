@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import facade from "../apiFacade";
+import URL from "../settings";
 
 const FoxFact = (props) => {
   const [foxFact, setFoxFact] = useState();

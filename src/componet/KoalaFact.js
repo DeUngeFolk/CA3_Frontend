@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import facade from "../apiFacade";
-
-
+import URL from "../settings";
 
 
 const KoalaFact = (props) => {
