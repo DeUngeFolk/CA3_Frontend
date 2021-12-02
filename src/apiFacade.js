@@ -1,5 +1,4 @@
 import URL from "./settings";
-import { useState } from "react";
 
 function handleHttpErrors(res) {
   if (!res.ok) {
