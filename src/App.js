@@ -23,6 +23,7 @@ import CatFact from "./componet/CatFact";
 import DogFact from "./componet/DogFact";
 import KoalaFact from "./componet/KoalaFact";
 import FoxFact from "./componet/FoxFact";
+import RandomFact from "./componet/RandomFact";
 
 function App(props) {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -62,6 +63,9 @@ function App(props) {
           </Route>
           <Route path='/fox-fact'>
           <FoxFact loggedIn = {loggedIn} />
+          </Route>
+          <Route path='/random-fact'>
+          <RandomFact loggedIn = {loggedIn} />
           </Route>
         <Route path="/company">
           <Company />

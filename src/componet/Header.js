@@ -45,6 +45,11 @@ function Header() {
           </NavLink>
         </li>
         <li>
+          <NavLink activeClassName="active" to="/random-fact">
+            Random Fact
+          </NavLink>
+        </li>
+        <li>
           <NavLink activeClassName="active" to="/company">
             Company
           </NavLink>
