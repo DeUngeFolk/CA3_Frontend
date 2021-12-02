@@ -24,6 +24,7 @@ import DogFact from "./componet/DogFact";
 import KoalaFact from "./componet/KoalaFact";
 import FoxFact from "./componet/FoxFact";
 import RandomFact from "./componet/RandomFact";
+import FactHistory from "./componet/FactHistory";
 
 function App(props) {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -38,7 +39,7 @@ function App(props) {
 
   return (
     <div>
-      <Header />
+      <Header LoggedIn = {loggedIn} />
       <Switch>
         <Route exact path="/">
           <Home />
@@ -56,21 +57,24 @@ function App(props) {
           <CatFact loggedIn = {loggedIn} facade={facade} />
           </Route>
           <Route path='/dog-fact'>
-          <DogFact loggedIn = {loggedIn} />
+          <DogFact loggedIn = {loggedIn} facade={facade} />
           </Route>
           <Route path='/koala-fact'>
-          <KoalaFact loggedIn = {loggedIn} />
+          <KoalaFact loggedIn = {loggedIn} facade={facade} />
           </Route>
           <Route path='/fox-fact'>
-          <FoxFact loggedIn = {loggedIn} />
+          <FoxFact loggedIn = {loggedIn} facade={facade} />
           </Route>
           <Route path='/random-fact'>
-          <RandomFact loggedIn = {loggedIn} />
+          <RandomFact loggedIn = {loggedIn} facade={facade} />
           </Route>
+          <Route path='/fact-history'>
+            <FactHistory loggedIn = {loggedIn} facade={facade}/>
+            </Route>
         <Route path="/company">
           <Company />
         </Route>
-        <route path="/login">
+        <Route path="/login">
           <div>
             {!loggedIn ? (
               <LogIn login={login} />
@@ -81,7 +85,7 @@ function App(props) {
               </div>
             )}
           </div>
-        </route>
+        </Route>
         <Route path="*">
           <NoMatch />
         </Route>

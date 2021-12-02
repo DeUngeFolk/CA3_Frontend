@@ -14,12 +14,14 @@ const KoalaFact = (props) => {
     const animalfact = koalaFact;
     if (props.loggedIn) {
       if (animalfact != null) {
-        fetch(
-          URL + "/api/animalfact/facthistory/save/user",
-          facade.makeOptions("POST", true, animalfact)
-        )
-          .then((response) => response.json())
-          .then(console.log(animalfact));
+        facade
+          .fetchData()
+          .then((data) => fetch(
+              URL + "/api/animalfact/facthistory/save/" + data.msg,
+              facade.makeOptions("POST", true, animalfact)
+            )
+              .then((response) => response.json())
+          );
       }
     }
   }, [koalaFact]);
