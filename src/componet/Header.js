@@ -50,6 +50,11 @@ function Header() {
               Fact History
             </NavLink>
           </li>
+          <li>
+            <NavLink activeClassName="active" to="/saved-facts">
+              Saved Facts
+            </NavLink>
+          </li>
       
         <li>
           <NavLink activeClassName="active" to="/login">

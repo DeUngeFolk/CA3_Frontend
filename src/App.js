@@ -25,6 +25,7 @@ import KoalaFact from "./componet/KoalaFact";
 import FoxFact from "./componet/FoxFact";
 import RandomFact from "./componet/RandomFact";
 import FactHistory from "./componet/FactHistory";
+import SavedFacts from "./componet/SavedFacts";
 
 function App(props) {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -70,6 +71,9 @@ function App(props) {
           </Route>
           <Route path='/fact-history'>
             <FactHistory loggedIn = {loggedIn} facade={facade}/>
+            </Route>
+            <Route path='/saved-facts'>
+            <SavedFacts loggedIn = {loggedIn} facade={facade}/>
             </Route>
         <Route path="/company">
           <Company />

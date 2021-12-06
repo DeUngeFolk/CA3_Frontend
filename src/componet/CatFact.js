@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import facade from "../apiFacade";
 import URL from "../settings";
 import LoggedIn from "./login/LoggedIn";
+import SaveFact from "./SaveFact";
 
 const CatFact = (props) => {
   const [catFact, setCatFact] = useState();
@@ -45,6 +46,11 @@ const CatFact = (props) => {
         {" "}
         new cat fact{" "}
       </button>
+
+      {catFact && (
+        <SaveFact
+        animalfact = {catFact}
+        facade = {facade} />)}
     </div>
   );
 };
