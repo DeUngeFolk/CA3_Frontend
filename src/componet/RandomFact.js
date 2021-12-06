@@ -26,8 +26,29 @@ const RandomFact = (props) => {
   }, [randomFact]);
 
   const getNewRandomFact = () => {
+    var imgURL;
+    var type; 
     facade.FetchAnimalFactData("random")
     .then((data) => setRandomFact(data));
+    randomFact && (
+    type = JSON.stringify(randomFact.type.type)
+    switch (type) {
+      case "cat":
+        imgURL = "https://images.theconversation.com/files/350865/original/file-20200803-24-50u91u.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop"
+        break;
+    
+      case "dog":
+        imgURL = "https://www.allgshepherds.com/wp-content/uploads/2021/02/German-Shepherd-No-Neck.jpg"
+        break;
+
+      case "koala":
+        imgURL = "https://memegenerator.net/img/images/15132932.jpg"
+        break;
+
+      case "fox":
+        imgURL = "https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/baby-red-fox-curtis-patterson.jpg"
+        break; 
+    })
   };
 
   return (
