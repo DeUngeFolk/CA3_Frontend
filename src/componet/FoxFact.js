@@ -32,6 +32,10 @@ const FoxFact = (props) => {
 
   return (
     <div>
+
+<img src = "https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/baby-red-fox-curtis-patterson.jpg" 
+    width="400" height="450" />
+
       {foxFact && (
         <div>
           <h1> Id: {foxFact.id} </h1>

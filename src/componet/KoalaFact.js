@@ -34,6 +34,10 @@ const KoalaFact = (props) => {
 
   return (
     <div>
+
+<img src = "https://memegenerator.net/img/images/15132932.jpg" 
+    width="400" height="450" />
+
       {koalaFact && (
         <div>
           <h1> Id: {koalaFact.id} </h1>

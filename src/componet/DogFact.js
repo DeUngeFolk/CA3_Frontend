@@ -33,6 +33,10 @@ const DogFact = (props) => {
 
   return (
     <div>
+
+<img src = "https://www.allgshepherds.com/wp-content/uploads/2021/02/German-Shepherd-No-Neck.jpg" 
+    width="400" height="450" />
+
       {dogFact && (
         <div>
           <h1> Id: {dogFact.id} </h1>
