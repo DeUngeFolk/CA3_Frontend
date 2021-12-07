@@ -1,10 +1,12 @@
 import facade from "../apiFacade";
+import URL from "../settings";
 
 
 const SaveFact = (props) => {
   const SaveFactToUser = () => {
     const animalfact = props.animalfact;
-    if (props.loggedIn) {
+    console.log("save fact to user")
+    
       if (animalfact != null) {
         props.facade
           .fetchData()
@@ -15,7 +17,7 @@ const SaveFact = (props) => {
             ).then((response) => response.json())
           );
       }
-    }
+    
   };
 
   return (
