@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import facade from "../apiFacade";
 import URL from "../settings";
+import SaveFact from "./SaveFact";
 
 const DogFact = (props) => {
   const [dogFact, setDogFact] = useState();
@@ -49,6 +50,12 @@ const DogFact = (props) => {
         {" "}
         new dog fact{" "}
       </button>
+
+      {dogFact && (
+        <SaveFact
+        animalfact = {dogFact}
+        facade = {facade} />)}
+
     </div>
   );
 };

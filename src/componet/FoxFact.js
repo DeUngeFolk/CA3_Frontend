@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import facade from "../apiFacade";
 import URL from "../settings";
+import SaveFact from "./SaveFact";
 
 const FoxFact = (props) => {
   const [foxFact, setFoxFact] = useState();
@@ -48,6 +49,12 @@ const FoxFact = (props) => {
         {" "}
         new fox fact{" "}
       </button>
+
+      {foxFact && (
+        <SaveFact
+        animalfact = {foxFact}
+        facade = {facade} />)}
+
     </div>
   );
 };

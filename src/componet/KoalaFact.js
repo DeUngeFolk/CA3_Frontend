@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import facade from "../apiFacade";
 import URL from "../settings";
+import SaveFact from "./SaveFact";
 
 
 const KoalaFact = (props) => {
@@ -50,6 +51,12 @@ const KoalaFact = (props) => {
         {" "}
         new koala fact{" "}
       </button>
+
+      {koalaFact && (
+        <SaveFact
+        animalfact = {koalaFact}
+        facade = {facade} />)}
+
     </div>
   );
 };

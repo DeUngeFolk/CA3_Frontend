@@ -1,6 +1,7 @@
 import { useEffect, useState, Image } from "react";
 import facade from "../apiFacade";
 import URL from "../settings";
+import SaveFact from "./SaveFact";
 
 const RandomFact = (props) => {
   const [randomFact, setRandomFact] = useState();
@@ -79,6 +80,13 @@ const RandomFact = (props) => {
         {" "}
         new random fact{" "}
       </button>
+
+
+      {randomFact && (
+        <SaveFact
+        animalfact = {randomFact}
+        facade = {facade} />)}
+
     </div>
   );
 };
