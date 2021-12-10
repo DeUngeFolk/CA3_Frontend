@@ -61,6 +61,11 @@ function Header() {
             Login
           </NavLink>
         </li>
+        <li>
+          <NavLink activeClassName="active" to="/create-account">
+            Create account
+          </NavLink>
+        </li>
       </ul>
     </div>
   );

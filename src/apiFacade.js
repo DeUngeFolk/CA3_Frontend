@@ -35,19 +35,25 @@ function apiFacade() {
         setToken(res.token);
       });
   };
-  const fetchData = () => {
-    const options = makeOptions("GET", true); //True add's the token
-    return fetch(URL + "/api/info/user", options)
-      .then(handleHttpErrors);
-      
+
+  const createUser = (user, password) => {
+    const options = makeOptions("POST", true, {
+      username: user,
+      password: password,
+    });
+
+    return fetch(URL + "/api/user/create", options).then(handleHttpErrors);
   };
 
-const FetchAnimalFactData = (animal) => {
+  const fetchData = () => {
+    const options = makeOptions("GET", true); //True add's the token
+    return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
+  };
 
-  return fetch(URL + "/api/animalfact/" + animal)
-  .then((response) => response.json())
-  
-  
+  const FetchAnimalFactData = (animal) => {
+    return fetch(URL + "/api/animalfact/" + animal).then((response) =>
+      response.json()
+    );
   };
 
   const makeOptions = (method, addToken, body) => {
@@ -74,7 +80,8 @@ const FetchAnimalFactData = (animal) => {
     login,
     logout,
     fetchData,
-    FetchAnimalFactData
+    FetchAnimalFactData,
+    createUser,
   };
 }
 const facade = apiFacade();

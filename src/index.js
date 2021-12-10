@@ -4,8 +4,7 @@ import './index.css';
 import App from './App';
 
 import bookFacade from "./bookFacade";
-import LoggedIn from './componet/login/LoggedIn';
-import LogIn from './componet/login/LogIn';
+
 import { BrowserRouter as Router } from "react-router-dom";
 
 const AppWithRouter = () => {

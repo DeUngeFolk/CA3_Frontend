@@ -26,6 +26,7 @@ import FoxFact from "./componet/FoxFact";
 import RandomFact from "./componet/RandomFact";
 import FactHistory from "./componet/FactHistory";
 import SavedFacts from "./componet/SavedFacts";
+import CreateAccount from "./componet/login/CreateAccount";
 
 function App(props) {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -38,9 +39,13 @@ function App(props) {
     facade.login(user, pass).then((res) => setLoggedIn(true));
   };
 
+  const createUser = (user, pass) => {
+    facade.createUser(user, pass)
+  };
+
   return (
     <div>
-      <Header LoggedIn = {loggedIn} />
+      <Header LoggedIn={loggedIn} />
       <Switch>
         <Route exact path="/">
           <Home />
@@ -54,29 +59,32 @@ function App(props) {
         <Route path="/find-book">
           <FindBook bookFacade={props.bookFacade} />
         </Route>
-        <Route path='/cat-fact'>
-          <CatFact loggedIn = {loggedIn} facade={facade} />
-          </Route>
-          <Route path='/dog-fact'>
-          <DogFact loggedIn = {loggedIn} facade={facade} />
-          </Route>
-          <Route path='/koala-fact'>
-          <KoalaFact loggedIn = {loggedIn} facade={facade} />
-          </Route>
-          <Route path='/fox-fact'>
-          <FoxFact loggedIn = {loggedIn} facade={facade} />
-          </Route>
-          <Route path='/random-fact'>
-          <RandomFact loggedIn = {loggedIn} facade={facade} />
-          </Route>
-          <Route path='/fact-history'>
-            <FactHistory loggedIn = {loggedIn} facade={facade}/>
-            </Route>
-            <Route path='/saved-facts'>
-            <SavedFacts loggedIn = {loggedIn} facade={facade}/>
-            </Route>
+        <Route path="/cat-fact">
+          <CatFact loggedIn={loggedIn} facade={facade} />
+        </Route>
+        <Route path="/dog-fact">
+          <DogFact loggedIn={loggedIn} facade={facade} />
+        </Route>
+        <Route path="/koala-fact">
+          <KoalaFact loggedIn={loggedIn} facade={facade} />
+        </Route>
+        <Route path="/fox-fact">
+          <FoxFact loggedIn={loggedIn} facade={facade} />
+        </Route>
+        <Route path="/random-fact">
+          <RandomFact loggedIn={loggedIn} facade={facade} />
+        </Route>
+        <Route path="/fact-history">
+          <FactHistory loggedIn={loggedIn} facade={facade} />
+        </Route>
+        <Route path="/saved-facts">
+          <SavedFacts loggedIn={loggedIn} facade={facade} />
+        </Route>
         <Route path="/company">
           <Company />
+        </Route>
+        <Route path="/create-account">
+          <CreateAccount createUser={createUser}  />
         </Route>
         <Route path="/login">
           <div>
