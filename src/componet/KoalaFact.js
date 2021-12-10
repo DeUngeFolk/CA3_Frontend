@@ -41,7 +41,7 @@ const KoalaFact = (props) => {
 
       {koalaFact && (
         <div>
-          <h1> Id: {koalaFact.id} </h1>
+          
           <h1> Type: {JSON.stringify(koalaFact.type.type)} </h1>
           <h2> Fact: {koalaFact.fact} </h2>{" "}
         </div>

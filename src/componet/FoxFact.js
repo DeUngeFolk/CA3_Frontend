@@ -39,7 +39,7 @@ const FoxFact = (props) => {
 
       {foxFact && (
         <div>
-          <h1> Id: {foxFact.id} </h1>
+          
           <h1> Type: {JSON.stringify(foxFact.type.type)} </h1>
           <h2> Fact: {foxFact.fact} </h2>{" "}
         </div>

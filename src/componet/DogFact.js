@@ -40,7 +40,7 @@ const DogFact = (props) => {
 
       {dogFact && (
         <div>
-          <h1> Id: {dogFact.id} </h1>
+          
           <h1> Type: {JSON.stringify(dogFact.type.type)} </h1>
           <h2> Fact: {dogFact.fact} </h2>{" "}
         </div>

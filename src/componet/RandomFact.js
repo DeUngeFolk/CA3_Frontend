@@ -70,7 +70,6 @@ const RandomFact = (props) => {
 
       {randomFact && (
         <div>
-          <h1> Id: {randomFact.id} </h1>
           <h1> Type: {JSON.stringify(randomFact.type.type)} </h1>
           <h2> Fact: {randomFact.fact} </h2>{" "}
         </div>
